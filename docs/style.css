@@ -64,3 +64,102 @@
   margin-top: 3rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Night mode base transitions */
+body,
+.content,
+.btn-click {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Night mode theme */
+body.night-mode {
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+body.night-mode .page-header {
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: #e5e7eb;
+}
+
+body.night-mode .main-heading {
+  color: #e5e7eb;
+}
+
+body.night-mode .content {
+  background-color: #111827;
+  color: #d1d5db;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.9);
+}
+
+body.night-mode .intro {
+  color: #9ca3af;
+}
+
+body.night-mode .page-footer {
+  color: #9ca3af;
+  border-top-color: #374151;
+}
+
+body.night-mode .btn-click {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #e5e7eb;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.75);
+}
+
+body.night-mode .btn-click:hover,
+body.night-mode .btn-click:focus {
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.9);
+}
+
+/* Night mode toggle switch */
+#night-toggle {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #cbd5f5;
+  vertical-align: middle;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+#night-toggle::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #4b5563;
+  border-radius: 50%;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+#night-toggle:checked {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+#night-toggle:checked::before {
+  transform: translateX(20px);
+  background-color: #e5e7eb;
+}
+
+#night-toggle-label {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  vertical-align: middle;
+}
+
+body.night-mode #night-toggle-label {
+  color: #9ca3af;
+}
