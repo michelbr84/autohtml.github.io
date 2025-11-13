@@ -4,9 +4,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("input");
   const sendBtn = document.getElementById("send-btn");
 
+  // Initialize theme from localStorage with safe defaults
+  const savedTheme = (typeof localStorage !== "undefined" && localStorage.getItem("theme")) || "light";
+  if (savedTheme === "dark") {
+    document.body.classList.add("night-mode");
+    if (nightToggle) nightToggle.checked = true;
+  } else {
+    document.body.classList.remove("night-mode");
+    if (nightToggle) nightToggle.checked = false;
+  }
+
+  // Theme toggle listener (null-safe)
   if (nightToggle) {
     nightToggle.addEventListener("change", () => {
-      document.body.classList.toggle("night-mode", nightToggle.checked);
+      const isDark = !!nightToggle.checked;
+      document.body.classList.toggle("night-mode", isDark);
+      try {
+        if (typeof localStorage !== "undefined") {
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        }
+      } catch (e) {
+        // Fail silently if storage is unavailable
+      }
     });
   }
 
