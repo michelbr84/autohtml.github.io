@@ -4,53 +4,63 @@
 <meta charset="UTF-8">
 <title>Hello World GPT</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css">
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="w3-dark-gray">
-<div class="app-layout w3-row" style="height:100vh;">
-  <aside class="sidebar w3-col l2 m3 s4 w3-black w3-bar-block" style="height:100%;">
-    <div class="w3-padding w3-border-bottom">
-      <button class="w3-button w3-block w3-round-large w3-border w3-left-align">+ New chat</button>
+<body class="w3-theme-l5">
+<div class="w3-row app-layout" style="height:100vh;display:flex;">
+  <!-- Sidebar -->
+  <aside class="w3-col l2 m3 s4 w3-theme-d4" style="display:flex;flex-direction:column;">
+    <div class="w3-padding w3-border-bottom w3-theme-d3">
+      <button class="w3-button w3-block w3-theme-action w3-round-large w3-margin-bottom">+ New chat</button>
     </div>
-    <div class="w3-padding-small">
-      <div class="w3-padding-small w3-text-grey">Today</div>
-      <a class="w3-bar-item w3-button w3-small">Explain this code snippet</a>
-      <a class="w3-bar-item w3-button w3-small">Write a professional email</a>
-      <a class="w3-bar-item w3-button w3-small">Summarize this article</a>
+    <div class="w3-padding-small" style="flex:1;overflow-y:auto;">
+      <div class="w3-small w3-text-theme">Today</div>
+      <a class="w3-bar-item w3-button w3-small w3-theme-l4 w3-round-small w3-margin-top">Explain this code snippet</a>
+      <a class="w3-bar-item w3-button w3-small w3-theme-l4 w3-round-small w3-margin-top">Write a professional email</a>
+      <a class="w3-bar-item w3-button w3-small w3-theme-l4 w3-round-small w3-margin-top">Summarize this article</a>
     </div>
   </aside>
 
-  <main class="w3-col l10 m9 s8" style="height:100%; display:flex; flex-direction:column;">
-    <header class="w3-padding w3-border-bottom" style="display:flex; align-items:center; justify-content:space-between;">
+  <!-- Main Chat Area -->
+  <main class="w3-col l10 m9 s8" style="height:100%;display:flex;flex-direction:column;">
+    <!-- Header -->
+    <header class="w3-padding w3-border-bottom w3-theme" style="display:flex;align-items:center;justify-content:space-between;">
       <div class="w3-large">Hello World GPT</div>
       <div>
-        <label for="night-toggle" class="w3-small w3-text-light-grey">Night mode</label>
+        <label for="night-toggle" class="w3-small w3-text-theme-l4">Night mode</label>
         <input type="checkbox" id="night-toggle">
       </div>
     </header>
 
-    <section id="messages" class="w3-padding" style="flex:1; overflow-y:auto;">
+    <!-- Messages -->
+    <section id="messages" class="w3-padding" style="flex:1;overflow-y:auto;">
+      <!-- User message -->
       <div class="w3-margin-bottom">
         <div class="w3-small w3-text-grey">You</div>
-        <div class="w3-padding w3-round-large w3-border">Hello!</div>
+        <div class="w3-padding w3-round-large w3-theme-light w3-border">Hello!</div>
       </div>
+      <!-- Assistant message -->
       <div class="w3-margin-bottom">
         <div class="w3-small w3-text-grey">Hello World GPT</div>
-        <div class="w3-padding w3-round-large w3-black">Hi there! How can I help you today?</div>
+        <div class="w3-padding w3-round-large w3-theme-l2 w3-text-theme-d4">Hi there! How can I help you today?</div>
       </div>
+      <!-- User message -->
       <div class="w3-margin-bottom">
         <div class="w3-small w3-text-grey">You</div>
-        <div class="w3-padding w3-round-large w3-border">Show me how this ChatGPT-style layout looks.</div>
+        <div class="w3-padding w3-round-large w3-theme-l5 w3-border">Show me how this ChatGPT-style layout looks.</div>
       </div>
+      <!-- Assistant message -->
       <div class="w3-margin-bottom">
         <div class="w3-small w3-text-grey">Hello World GPT</div>
-        <div class="w3-padding w3-round-large w3-black">This is a static preview of a ChatGPT-like interface using W3.CSS.</div>
+        <div class="w3-padding w3-round-large w3-theme-l3 w3-text-theme-d4">This is a static preview of a ChatGPT-like interface using W3.CSS indigo theme colors.</div>
       </div>
     </section>
 
-    <footer class="w3-padding w3-border-top" style="display:flex; align-items:flex-end; gap:8px;">
-      <textarea id="input" class="w3-input w3-border" rows="1" placeholder="Send a message..."></textarea>
-      <button id="send-btn" class="w3-button w3-black w3-round-large">Send</button>
+    <!-- Input Area -->
+    <footer class="w3-padding w3-border-top w3-theme-l4" style="display:flex;align-items:flex-end;gap:8px;">
+      <textarea id="input" class="w3-input w3-border w3-round" rows="1" placeholder="Send a message..."></textarea>
+      <button id="send-btn" class="w3-button w3-theme w3-round-large">Send</button>
     </footer>
   </main>
 </div>
