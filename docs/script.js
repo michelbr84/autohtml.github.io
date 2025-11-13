@@ -1,73 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  if (body) {
+    body.classList.add("dom-ready");
+  }
+
+  // Theme toggle (if checkbox with id "night-toggle" exists)
   const nightToggle = document.getElementById("night-toggle");
-  const messages = document.getElementById("messages");
-  const input = document.getElementById("input");
-  const sendBtn = document.getElementById("send-btn");
-
-  // Read saved theme (null-safe, guarded)
-  let savedTheme = "light";
-  try {
-    if (typeof localStorage !== "undefined") {
-      const stored = localStorage.getItem("theme");
-      if (stored === "light" || stored === "dark") {
-        savedTheme = stored;
+  if (nightToggle && "checked" in nightToggle) {
+    let savedTheme = "light";
+    try {
+      if (typeof localStorage !== "undefined") {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light" || stored === "dark") {
+          savedTheme = stored;
+        }
       }
-    }
-  } catch (e) {
-    // Ignore storage errors; fallback to light
-  }
+    } catch (_) {}
 
-  // Apply initial theme and sync toggle (null-safe)
-  if (savedTheme === "dark") {
-    if (document.body) {
-      document.body.classList.add("night-mode");
-    }
-    if (nightToggle) {
-      nightToggle.checked = true;
-    }
-  } else {
-    if (document.body) {
-      document.body.classList.remove("night-mode");
-    }
-    if (nightToggle) {
-      nightToggle.checked = false;
-    }
-  }
-
-  // Toggle theme on change (null-safe, guarded)
-  if (nightToggle) {
-    nightToggle.addEventListener("change", () => {
-      const isDark = !!nightToggle.checked;
-      if (document.body) {
-        document.body.classList.toggle("night-mode", isDark);
-      }
+    const applyTheme = (isDark) => {
+      if (!body) return;
+      body.classList.toggle("night-mode", isDark);
       try {
         if (typeof localStorage !== "undefined") {
           localStorage.setItem("theme", isDark ? "dark" : "light");
         }
-      } catch (e) {
-        // Ignore storage errors
-      }
+      } catch (_) {}
+    };
+
+    const initialIsDark = savedTheme === "dark";
+    nightToggle.checked = initialIsDark;
+    applyTheme(initialIsDark);
+
+    nightToggle.addEventListener("change", () => {
+      applyTheme(!!nightToggle.checked);
     });
   }
 
-  function appendMessage(text, role) {
-    if (!messages) return;
+  // Simple message demo (if structure exists)
+  const messages = document.getElementById("messages");
+  const input = document.getElementById("input");
+  const sendBtn = document.getElementById("send-btn");
+
+  const appendMessage = (text, role) => {
+    if (!messages || !text) return;
     const el = document.createElement("div");
-    el.className = `message ${role}`;
+    el.className = role ? `message ${role}` : "message";
     el.textContent = text;
     messages.appendChild(el);
-  }
+    messages.scrollTop = messages.scrollHeight;
+  };
 
-  function send() {
+  const send = () => {
     if (!messages || !input) return;
     const text = input.value.trim();
     if (!text) return;
     appendMessage(text, "user");
     appendMessage("This is a simulated response.", "assistant");
-    messages.scrollTop = messages.scrollHeight;
     input.value = "";
-  }
+  };
 
   if (sendBtn) {
     sendBtn.addEventListener("click", send);
@@ -79,6 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         send();
       }
+    });
+  }
+
+  // Optional "Back to top" button behavior
+  const backToTop = document.getElementById("back-to-top");
+  if (backToTop) {
+    backToTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 });
