@@ -16,7 +16,7 @@ body {
   font-family: 'Open Sans', Arial, sans-serif;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   margin: 0;
-  padding: 0 1rem 2rem;
+  padding: 0 1rem 2rem 1rem;
   color: #444;
 }
 
@@ -38,6 +38,7 @@ body {
 
 .actions {
   text-align: center;
+  margin-top: 1.5rem;
 }
 
 .btn-click {
@@ -61,8 +62,9 @@ body {
 .page-footer {
   text-align: center;
   font-size: 0.9rem;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 1rem 1rem 1rem;
   color: #666;
   border-top: 1px solid #ddd;
   margin-top: 3rem;
 }
+
