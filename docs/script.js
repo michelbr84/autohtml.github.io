@@ -4,27 +4,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("input");
   const sendBtn = document.getElementById("send-btn");
 
-  // Initialize theme from localStorage with safe defaults
-  const savedTheme = (typeof localStorage !== "undefined" && localStorage.getItem("theme")) || "light";
-  if (savedTheme === "dark") {
-    document.body.classList.add("night-mode");
-    if (nightToggle) nightToggle.checked = true;
-  } else {
-    document.body.classList.remove("night-mode");
-    if (nightToggle) nightToggle.checked = false;
+  // Read saved theme (null-safe, guarded)
+  let savedTheme = "light";
+  try {
+    if (typeof localStorage !== "undefined") {
+      const stored = localStorage.getItem("theme");
+      if (stored === "light" || stored === "dark") {
+        savedTheme = stored;
+      }
+    }
+  } catch (e) {
+    // Ignore storage errors; fallback to light
   }
 
-  // Theme toggle listener (null-safe)
+  // Apply initial theme and sync toggle (null-safe)
+  if (savedTheme === "dark") {
+    if (document.body) {
+      document.body.classList.add("night-mode");
+    }
+    if (nightToggle) {
+      nightToggle.checked = true;
+    }
+  } else {
+    if (document.body) {
+      document.body.classList.remove("night-mode");
+    }
+    if (nightToggle) {
+      nightToggle.checked = false;
+    }
+  }
+
+  // Toggle theme on change (null-safe, guarded)
   if (nightToggle) {
     nightToggle.addEventListener("change", () => {
       const isDark = !!nightToggle.checked;
-      document.body.classList.toggle("night-mode", isDark);
+      if (document.body) {
+        document.body.classList.toggle("night-mode", isDark);
+      }
       try {
         if (typeof localStorage !== "undefined") {
           localStorage.setItem("theme", isDark ? "dark" : "light");
         }
       } catch (e) {
-        // Fail silently if storage is unavailable
+        // Ignore storage errors
       }
     });
   }
