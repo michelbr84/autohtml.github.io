@@ -1,8 +1,28 @@
-/* Base typography & page */
+* {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+:root {
+  /* Light theme */
+  --bg-primary: #f4f6fb;
+  --bg-secondary: #eef2fb;
+  --bg-elevated: #ffffff;
+
+  --text-primary: #222222;
+  --text-secondary: #4a5568;
+
+  --border-subtle: rgba(99, 81, 181, 0.16);
+
+  --accent: #3f51b5;
+  --accent-soft: #e8eaf6;
+
+  --shadow-soft: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
 body {
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  background-color: #f4f6fb;
-  color: #222;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 /* App layout */
@@ -17,8 +37,8 @@ body {
   flex-direction: column;
   flex: 0 0 260px;
   padding: 8px;
-  background-color: #eef2fb;
-  border-right: 1px solid rgba(63, 81, 181, 0.16);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
 }
 
 /* Main area */
@@ -35,8 +55,10 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  background-color: #ffffff;
-  border-bottom: 1px solid rgba(63, 81, 181, 0.12);
+  background-color: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  color: var(--text-primary);
 }
 
 /* Messages area */
@@ -47,6 +69,8 @@ body {
   gap: 6px;
   padding: 14px 16px;
   overflow-y: auto;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .message {
@@ -55,24 +79,28 @@ body {
   border-radius: 10px;
   font-size: 0.95rem;
   line-height: 1.55;
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-soft);
 }
 
 .message.assistant {
-  background-color: #e8eaf6;
-  color: #1a237e;
+  background-color: var(--accent-soft);
+  color: var(--text-secondary);
 }
 
 .message.user {
   margin-left: auto;
-  background-color: #c5cae9;
-  color: #0d102b;
+  background-color: var(--accent);
+  color: var(--bg-elevated);
 }
 
 /* Input bar */
 .input-bar {
   padding: 8px 10px;
-  background-color: #ffffff;
-  border-top: 1px solid rgba(63, 81, 181, 0.16);
+  background-color: var(--bg-elevated);
+  border-top: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
 }
 
 .input-inner {
@@ -86,17 +114,19 @@ body {
   resize: none;
   padding: 7px 9px;
   border-radius: 8px;
-  border: 1px solid rgba(63, 81, 181, 0.35);
+  border: 1px solid var(--border-subtle);
   font-size: 0.95rem;
   line-height: 1.4;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 #send-btn {
   padding: 7px 12px;
   border-radius: 8px;
   border: none;
-  background-color: #3f51b5;
-  color: #fff;
+  background-color: var(--accent);
+  color: var(--bg-elevated);
   font-size: 0.9rem;
   cursor: pointer;
 }
@@ -105,61 +135,19 @@ body {
   background-color: #303f9f;
 }
 
-/* Night mode: apply to entire app via body.night-mode */
+/* Night mode: override only variables */
 body.night-mode {
-  background-color: #020817;
-  color: #e5e7eb;
-}
+  --bg-primary: #020817;
+  --bg-secondary: #020817;
+  --bg-elevated: #020817;
 
-body.night-mode .app-layout {
-  background-color: #020817;
-}
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
 
-body.night-mode .sidebar {
-  background-color: #020817;
-  border-right-color: #111827;
-}
+  --border-subtle: #111827;
 
-body.night-mode .main-area {
-  background-color: #020817;
-}
+  --accent: #2563eb;
+  --accent-soft: #111827;
 
-body.night-mode .main-area .main-topbar {
-  background-color: #020817;
-  border-bottom-color: #111827;
-  color: #e5e7eb;
-}
-
-body.night-mode #messages {
-  color: #e5e7eb;
-}
-
-body.night-mode .message.assistant {
-  background-color: #111827;
-  color: #e5e7eb;
-}
-
-body.night-mode .message.user {
-  background-color: #2563eb;
-  color: #e5e7eb;
-}
-
-body.night-mode .input-bar {
-  background-color: #020817;
-  border-top-color: #111827;
-}
-
-body.night-mode #input {
-  background-color: #020817;
-  border-color: #111827;
-  color: #e5e7eb;
-}
-
-body.night-mode #send-btn {
-  background-color: #2563eb;
-  color: #e5e7eb;
-}
-
-body.night-mode #send-btn:hover {
-  background-color: #1d4ed8;
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
