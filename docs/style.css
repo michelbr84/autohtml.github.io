@@ -44,13 +44,14 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 3px 8px rgba(74, 126, 252, 0.4);
+  box-shadow: 0 3px 8px rgba(74, 126, 252, 0.6);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-click:hover, .btn-click:focus {
+.btn-click:hover,
+.btn-click:focus {
   background: linear-gradient(135deg, #5474ff, #3358cc);
-  box-shadow: 0 5px 15px rgba(51, 88, 204, 0.6);
+  box-shadow: 0 5px 15px rgba(51, 88, 204, 0.8);
   outline: none;
 }
 
