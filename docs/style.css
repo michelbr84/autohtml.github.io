@@ -1,74 +1,89 @@
 /* Base styles */
 body {
     font-family: 'Segoe UI', 'Roboto', sans-serif;
-    background-color: #fff;
+    background-color: #ffffff;
+    color: #333;
     margin: 0;
-    padding: 40px;
-    text-align: center;
+    padding: 40px 20px;
+    line-height: 1.6;
 }
 
-/* Responsive container */
+/* Layout and container */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Heading styles */
+/* Headings */
 h1 {
     font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #222;
 }
 
-/* Subheading styles */
-p.description {
+/* Subheading */
+.description {
+    font-size: 1.1rem;
     font-style: italic;
     color: #666;
-    font-size: 1.1rem;
-    margin-bottom: 32px;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-/* Content styling */
-article.content {
+/* Content */
+.content {
     font-size: 1rem;
     line-height: 1.8;
-    color: #333;
+    text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    body {
-        padding: 20px;
-    }
-    
     h1 {
         font-size: 2rem;
     }
     
-    p.description {
+    .description {
         font-size: 1rem;
     }
     
-    article.content {
+    .content {
         font-size: 0.95rem;
+        padding: 0 15px;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+    
     h1 {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
     }
     
-    p.description {
+    .description, .content {
         font-size: 0.9rem;
     }
-    
-    article.content {
-        font-size: 0.9rem;
-    }
+}
+
+/* Optional: Add subtle hover effect for interactivity */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
