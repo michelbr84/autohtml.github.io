@@ -1,30 +1,36 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Base styles */
 body {
     font-family: 'Segoe UI', 'Roboto', sans-serif;
-    background-color: #ffffff;
+    background-color: #fff;
     color: #333;
-    margin: 0;
-    padding: 40px 20px;
     line-height: 1.6;
+    padding: 20px;
 }
 
-/* Layout and container */
+/* Layout container */
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
-/* Headings */
+/* Heading styles */
 h1 {
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
-    color: #222;
+    color: #1a1a1a;
 }
 
-/* Subheading */
+/* Subheading styles */
 .description {
     font-size: 1.1rem;
     font-style: italic;
@@ -33,13 +39,13 @@ h1 {
     margin-bottom: 2rem;
 }
 
-/* Content */
+/* Content area */
 .content {
-    font-size: 1rem;
-    line-height: 1.8;
-    text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    padding: 0 15px;
 }
 
 /* Responsive adjustments */
@@ -47,43 +53,28 @@ h1 {
     h1 {
         font-size: 2rem;
     }
-    
+
     .description {
         font-size: 1rem;
     }
-    
+
     .content {
-        font-size: 0.95rem;
-        padding: 0 15px;
+        font-size: 1rem;
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 20px 10px;
-    }
-    
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
-    
-    .description, .content {
+
+    .description {
         font-size: 0.9rem;
     }
-}
 
-/* Optional: Add subtle hover effect for interactivity */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
+    .content {
+        font-size: 0.95rem;
+        padding: 0 5px;
+    }
 }
