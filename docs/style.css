@@ -48,10 +48,9 @@
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-click:hover,
-.btn-click:focus {
+.btn-click:hover, .btn-click:focus {
   background: linear-gradient(135deg, #5474ff, #3358cc);
-  box-shadow: 0 5px 14px rgba(51, 88, 204, 0.6);
+  box-shadow: 0 5px 15px rgba(51, 88, 204, 0.6);
   outline: none;
 }
 
